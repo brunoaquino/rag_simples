@@ -1,6 +1,8 @@
 """
-Módulo de Banco de Dados Vetorial
-Sistema completo para armazenamento e recuperação de embeddings usando Pinecone.
+Vector Database Module
+
+Módulo para integração com bancos de dados vetoriais (Pinecone).
+Inclui gerenciamento de clientes, índices e schemas.
 """
 
 from .pinecone_client import (
@@ -9,27 +11,47 @@ from .pinecone_client import (
     VectorRecord,
     QueryResult,
     OperationMetrics,
-    create_pinecone_client,
-    get_default_config
+    PINECONE_AVAILABLE
 )
 
 from .index_manager import (
     IndexManager,
     IndexType,
-    IndexTemplate,
-    create_index_manager
+    IndexTemplate
+)
+
+from .schemas import (
+    IndexSchema,
+    MetadataField,
+    IndexEnvironment,
+    EmbeddingModel,
+    SchemaRegistry,
+    get_embedding_dimensions,
+    validate_schema,
+    create_migration_plan
 )
 
 __all__ = [
+    # Cliente principal
     "PineconeClient",
-    "PineconeConfig", 
+    "PineconeConfig",
     "VectorRecord",
-    "QueryResult",
+    "QueryResult", 
     "OperationMetrics",
-    "create_pinecone_client",
-    "get_default_config",
+    "PINECONE_AVAILABLE",
+    
+    # Gerenciador de índices
     "IndexManager",
     "IndexType",
     "IndexTemplate",
-    "create_index_manager"
+    
+    # Sistema de schemas
+    "IndexSchema",
+    "MetadataField",
+    "IndexEnvironment",
+    "EmbeddingModel",
+    "SchemaRegistry",
+    "get_embedding_dimensions",
+    "validate_schema",
+    "create_migration_plan"
 ]
