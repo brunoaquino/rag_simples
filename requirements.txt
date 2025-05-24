@@ -1,0 +1,74 @@
+# Sistema RAG Empresarial - Dependências Principais
+# Versões testadas e funcionando em Python 3.9+
+
+# Core RAG Framework
+langchain==0.3.25
+langchain-core==0.3.61
+langchain-openai==0.3.18
+langchain-text-splitters==0.3.8
+langsmith==0.3.42
+
+# Vector Database - CORRIGIDO: usar pinecone ao invés de pinecone-client
+pinecone==7.0.1
+
+# AI & ML
+openai==1.82.0
+transformers==4.52.3
+sentence-transformers==4.1.0
+torch==2.7.0
+tiktoken==0.9.0
+
+# UI Frameworks  
+streamlit==1.45.1
+fastapi==0.115.12
+uvicorn==0.34.2
+starlette==0.46.2
+
+# Document Processing
+PyPDF2==3.0.1
+pdfplumber==0.11.6
+python-docx==1.1.2
+pdfminer.six==20250327
+pypdfium2==4.30.1
+markdown==3.8
+
+# Data Processing
+pandas==2.2.3
+numpy==2.0.2
+scipy==1.13.1
+scikit-learn==1.6.1
+
+# Configuration & Environment
+pydantic==2.11.5
+python-dotenv==1.1.0
+PyYAML==6.0.2
+
+# Database
+sqlalchemy==2.0.41
+
+# Security
+cryptography==45.0.2
+passlib==1.7.4
+python-jose==3.4.0
+
+# HTTP & Requests
+httpx==0.28.1
+requests==2.32.3
+
+# Development Tools
+black==25.1.0
+pytest==8.3.5
+
+# Monitoring and Logging
+tqdm==4.67.1
+
+# Core Dependencies
+typing-extensions==4.13.2
+packaging==24.2
+filelock==3.18.0
+huggingface-hub==0.32.0
+tokenizers==0.21.1
+safetensors==0.5.3
+regex==2024.11.6
+jinja2==3.1.6
+pillow==11.2.1 
