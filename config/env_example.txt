@@ -1,37 +1,147 @@
-# Configurações de API
-OPENAI_API_KEY=sk-your-openai-api-key-here
-PINECONE_API_KEY=your-pinecone-api-key-here
-PINECONE_ENVIRONMENT=us-west1-gcp-free
-PINECONE_INDEX_NAME=rag-embeddings
+# =========================================
+# SISTEMA RAG EMPRESARIAL - CONFIGURAÇÕES
+# =========================================
+# Copie este arquivo para .env na raiz do projeto e configure as variáveis conforme necessário
+# Instruções: cp config/env_example.txt .env
 
-# Configurações do Banco de Dados
-DATABASE_URL=sqlite:///./data/rag_system.db
-DATABASE_ECHO=false
+# ===== REDIS CONFIGURATION =====
+# Configurações da instância Redis para cache e processamento assíncrono
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=0
+REDIS_PASSWORD=
+REDIS_MAX_CONNECTIONS=20
 
-# Configurações da Aplicação
-APP_NAME="Sistema RAG Empresarial"
-APP_VERSION=1.0.0
-DEBUG=true
-SECRET_KEY=your-secret-key-for-jwt-here
+# URL completa do Redis (opcional, sobrescreve configurações individuais)
+# REDIS_URL=redis://usuario:senha@localhost:6379/0
 
-# Configurações de Embeddings
-EMBEDDING_MODEL=all-MiniLM-L6-v2
-EMBEDDING_DIMENSION=384
-CHUNK_SIZE=1000
-CHUNK_OVERLAP=200
+# ===== CELERY CONFIGURATION =====
+# Ambiente de execução para o Celery
+# Opções: development, production, testing
+ENVIRONMENT=development
 
-# Configurações de Log
+# ===== AI PROVIDERS API KEYS =====
+# Configure apenas as chaves dos provedores que você vai usar
+
+# Anthropic Claude (Recomendado para tarefas complexas)
+# ANTHROPIC_API_KEY=sk-ant-api03-xxxxx
+
+# OpenAI GPT (Para embeddings e chat)
+# OPENAI_API_KEY=sk-xxxxx
+
+# Perplexity (Para pesquisa e análise)
+# PERPLEXITY_API_KEY=pplx-xxxxx
+
+# Google Gemini
+# GOOGLE_API_KEY=xxxxx
+
+# Mistral AI
+# MISTRAL_API_KEY=xxxxx
+
+# xAI Grok
+# XAI_API_KEY=xxxxx
+
+# OpenRouter (Acesso múltiplos modelos)
+# OPENROUTER_API_KEY=sk-or-xxxxx
+
+# ===== AZURE OPENAI =====
+# Para usar Azure OpenAI ao invés do OpenAI padrão
+# AZURE_OPENAI_API_KEY=xxxxx
+# AZURE_OPENAI_ENDPOINT=https://seu-recurso.openai.azure.com/
+# AZURE_OPENAI_DEPLOYMENT_NAME=gpt-4
+
+# ===== OLLAMA LOCAL =====
+# Para usar modelos locais via Ollama
+# OLLAMA_BASE_URL=http://localhost:11434/api
+# OLLAMA_API_KEY=optional_key_if_secured
+
+# ===== PINECONE VECTOR DATABASE =====
+# Configurações do banco de dados vetorial
+# PINECONE_API_KEY=xxxxx-xxxxx-xxxxx
+# PINECONE_ENVIRONMENT=us-west1-gcp-free
+# PINECONE_INDEX_NAME=rag-documentos
+
+# Configurações avançadas do Pinecone
+# PINECONE_DIMENSION=1024
+# PINECONE_METRIC=cosine
+# PINECONE_REPLICAS=1
+# PINECONE_PODS=1
+
+# ===== HUGGING FACE =====
+# Para modelos de embedding e outros recursos
+# HUGGINGFACE_API_KEY=hf_xxxxx
+
+# ===== LOGGING =====
+# Configurações de log do sistema
+# Níveis: DEBUG, INFO, WARNING, ERROR, CRITICAL
 LOG_LEVEL=INFO
-LOG_FORMAT=json
 
-# Configurações do Streamlit
-STREAMLIT_SERVER_PORT=8501
-STREAMLIT_SERVER_ADDRESS=localhost
+# Caminho para arquivo de log
+# LOG_FILE_PATH=./logs/rag_system.log
 
-# Configurações do FastAPI
-FASTAPI_HOST=0.0.0.0
-FASTAPI_PORT=8000
+# ===== SECURITY =====
+# Chave secreta para JWT e outras funções de segurança
+# IMPORTANTE: Gere uma chave forte em produção!
+SECRET_KEY=development_secret_key_change_in_production
 
-# Configurações de Segurança
-CORS_ORIGINS=["http://localhost:3000", "http://localhost:8501"]
-ACCESS_TOKEN_EXPIRE_MINUTES=30 
+# Configurações JWT
+# JWT_ALGORITHM=HS256
+# JWT_EXPIRE_MINUTES=1440
+
+# ===== PERFORMANCE =====
+# Configurações de performance do sistema
+MAX_WORKERS=4
+TIMEOUT_SECONDS=300
+
+# Configurações de chunk para processamento de documentos
+# CHUNK_SIZE=1000
+# CHUNK_OVERLAP=200
+# MAX_FILE_SIZE=52428800
+
+# ===== DATABASE =====
+# Configurações do banco de dados principal
+# DATABASE_URL=sqlite:///./data/rag_system.db
+# DATABASE_ECHO=false
+
+# Para PostgreSQL em produção:
+# DATABASE_URL=postgresql://usuario:senha@localhost:5432/rag_db
+
+# ===== WEB INTERFACES =====
+# Configurações das interfaces web
+
+# Streamlit (Interface principal)
+# STREAMLIT_PORT=8501
+# STREAMLIT_HOST=localhost
+
+# FastAPI (API REST)
+# FASTAPI_HOST=0.0.0.0
+# FASTAPI_PORT=8000
+
+# ===== CORS =====
+# Configurações de CORS para APIs
+# CORS_ORIGINS=["http://localhost:3000","http://localhost:8501"]
+
+# ===== EMBEDDINGS =====
+# Configurações dos modelos de embedding
+# EMBEDDING_MODEL=all-MiniLM-L6-v2
+# EMBEDDING_DIMENSION=384
+# EMBEDDING_BATCH_SIZE=32
+
+# ===== MONITORING =====
+# Configurações de monitoramento e métricas
+# ENABLE_METRICS=true
+# METRICS_PORT=9090
+
+# ===== DEVELOPMENT =====
+# Configurações específicas para desenvolvimento
+# DEBUG=true
+# HOT_RELOAD=true
+# VERBOSE_LOGGING=false
+
+# ===== PRODUCTION =====
+# Para ambiente de produção, descomente e configure:
+# DEBUG=false
+# LOG_LEVEL=WARNING
+# ENABLE_METRICS=true
+# MAX_WORKERS=8
+# REDIS_MAX_CONNECTIONS=50 

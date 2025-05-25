@@ -1,0 +1,21 @@
+# Async Processing Dependencies
+# Task queue and async processing with Celery
+celery[redis]==5.5.2
+redis==4.6.0  # Versão compatível com celery e channels-redis
+kombu==5.5.2
+billiard==4.2.1
+
+# Task monitoring
+flower==2.0.1
+
+# WebSocket support for real-time communication
+channels==4.0.0
+channels-redis==4.2.0
+
+# Serialization and compression
+msgpack==1.1.0
+lz4==4.4.4
+
+# Utilities
+python-dotenv==1.0.1
+psutil==6.1.1 

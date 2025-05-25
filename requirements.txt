@@ -40,11 +40,28 @@ scikit-learn==1.6.1
 
 # Configuration & Environment
 pydantic==2.11.5
-python-dotenv==1.1.0
+python-dotenv==1.0.1
 PyYAML==6.0.2
 
 # Database
 sqlalchemy==2.0.41
+
+# Async Processing & Queue Management
+celery[redis]==5.5.2
+redis==4.6.0
+kombu==5.5.2
+billiard==4.2.1
+flower==2.0.1
+
+# WebSocket Support for Real-time Communication
+channels==4.0.0
+channels-redis==4.2.0
+Django>=3.2
+asgiref<4,>=3.5.0
+
+# Serialization and Compression
+msgpack==1.1.0
+lz4==4.4.4
 
 # Security
 cryptography==45.0.2
@@ -55,6 +72,11 @@ python-jose==3.4.0
 httpx==0.28.1
 requests==2.32.3
 
+# Monitoring and System Utilities
+psutil==6.1.1
+prometheus-client>=0.8.0
+humanize
+
 # Development Tools
 black==25.1.0
 pytest==8.3.5
@@ -63,7 +85,7 @@ pytest==8.3.5
 tqdm==4.67.1
 
 # Core Dependencies
-typing-extensions==4.13.2
+typing-extensions==4.12.2
 packaging==24.2
 filelock==3.18.0
 huggingface-hub==0.32.0
